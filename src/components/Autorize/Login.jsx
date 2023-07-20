@@ -16,11 +16,11 @@ function Login() {
           <label htmlFor="password" className="autorize__label">Пароль</label>
           <input id="password" className="autorize__input" type="password" />
           <label htmlFor="password" className="autorize__label autorize__label_error">Что-то пошло не так...</label>
-          <button type="submit" className="autorize__submit autorize__submit_login">Войти</button>
+          <button type="submit" className="autorize__submit autorize__submit_login button-hover">Войти</button>
         </form>
         <p className="autorize__paragraph">
           Ещё не зарегистрированы?
-          <Link to="/signup" className="autorize__link">Регистрация</Link>
+          <Link to="/signup" className="autorize__link link-hover">Регистрация</Link>
         </p>
       </div>
     </div>

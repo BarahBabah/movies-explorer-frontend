@@ -25,8 +25,8 @@ function Profile() {
           </label>
         </div>
         {/* <p className="profile__error">При обновлении профиля произошла ошибка.</p> */}
-        <button type="submit" className="profile__button profile__button_submit">Редактировать</button>
-        <button type="button" className="profile__button profile__button_logout">Выйти из аккаунта</button>
+        <button type="submit" className="profile__button profile__button_submit button-hover">Редактировать</button>
+        <button type="button" className="profile__button profile__button_logout button-hover">Выйти из аккаунта</button>
       </form>
     </section>
   )

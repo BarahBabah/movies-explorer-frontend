@@ -7,10 +7,10 @@ function SearchForm(props) {
 
   return (
     <section className='search-form'>
-      <div className="search-form__container">
+      <form className="search-form__container">
         <div className="search-form__label">
           <input className='search-form__input' placeholder='Фильм' type="text" />
-          <button className="search-form__submit">Найти</button>
+          <button className="search-form__submit button-hover">Найти</button>
         </div>
         <div className="search-form__options">
           <label className="search-from__option-checkbox-label">
@@ -19,7 +19,7 @@ function SearchForm(props) {
           </label>
           <span className="search-form__option-text">Короткометражки</span>
         </div>
-      </div>
+      </form>
     </section>
   );
 }

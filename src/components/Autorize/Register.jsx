@@ -20,11 +20,11 @@ function Register() {
           <label htmlFor="password" className="autorize__label">Пароль</label>
           <input id="password" className="autorize__input" type="password" />
           <label htmlFor="password" className="autorize__label autorize__label_error">Что-то пошло не так...</label>
-          <button type="submit" className="autorize__submit">Зарегистрироваться</button>
+          <button type="submit" className="autorize__submit button-hover">Зарегистрироваться</button>
         </form>
         <p className="autorize__paragraph">
           Уже зарегистрированы?
-          <Link to="/signin" className="autorize__link">Войти</Link>
+          <Link to="/signin" className="autorize__link link-hover">Войти</Link>
         </p>
       </div>
     </div>

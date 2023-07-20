@@ -34,10 +34,17 @@
 .card__spec {
   margin-top: 5px;
   padding: 0;
-  background: url(../../images/save9d.svg) no-repeat;
   border: 0;
   width: 30px;
   height: 30px;
+}
+
+.card__spec_movies {
+  background: url(../../images/d9.svg) no-repeat;
+}
+
+.card__spec_saved {
+  background: url(../../images/save9d.svg) no-repeat;
 }
 
 .card__thumbnail {

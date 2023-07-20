@@ -11,8 +11,8 @@ function Header({loggedIn}) {
           <img src={logo} alt="logotype" />
         </Link>
         <div className="header__auth-container">
-          <Link to="/signup" className="header__link">Регистрация</Link>
-          <Link to="/signin" className="header__button">Войти</Link>
+          <Link to="/signup" className="header__link link-hover">Регистрация</Link>
+          <Link to="/signin" className="header__button button-hover">Войти</Link>
         </div>
       </div>
     </header>

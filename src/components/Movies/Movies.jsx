@@ -13,7 +13,6 @@ function Movies(props) {
       <SearchForm/>
       <MoviesCardList/>
       <More/>
-      <Footer/>
     </section>
   );
 }

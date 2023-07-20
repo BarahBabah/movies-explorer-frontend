@@ -4,7 +4,7 @@ import './More.css'
 const More = () => {
     return (
         <section className="more">
-          <button className='more__button'>Ещё</button>
+          <button className='more__button button-hover'>Ещё</button>
         </section>
     )
 };

@@ -6,13 +6,13 @@ function NavTab() {
     <nav className="navtab">
       <ul className='navtab-list'>
         <li className='navtab-item'>
-          <a className="navtab-link" href="#project">О проекте</a>
+          <a className="navtab-link link-hover" href="#project">О проекте</a>
         </li>
         <li className='navtab-item'>
-          <a className="navtab-link" href="#techs">Технологии</a>
+          <a className="navtab-link link-hover" href="#techs">Технологии</a>
         </li>
         <li className='navtab-item'>
-          <a className="navtab-link" href="#student">Студент</a>
+          <a className="navtab-link link-hover" href="#student">Студент</a>
         </li>
       </ul>
     </nav>

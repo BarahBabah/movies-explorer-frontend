@@ -1,7 +1,7 @@
 /* vendor*/
 @import url(./normalize.css);
 @import url(./fonts/inter.css);
-
+@import url(./../mixins/hover.css);
 .page {
   height: 100%;
   width: 100%;

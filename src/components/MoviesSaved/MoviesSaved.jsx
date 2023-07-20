@@ -2,7 +2,6 @@ import React from "react";
 import { Link, useLocation } from 'react-router-dom';
 import './MoviesSaved.css'
 import SearchForm from '../SearchForm/SearchForm.jsx'
-import Footer from '../Footer/Footer'
 import MoviesCardList from '../MoviesCardList/MoviesCardList'
 function MoviesSaved(props) {
   const location = useLocation();
