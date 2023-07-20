@@ -1,0 +1,89 @@
+.autorize {
+  background: #202020;
+  min-height: 217px;
+}
+
+.autorize__container {
+  margin: 0 auto 0 auto;
+  max-width: calc(1280px - (442px * 2));
+}
+
+.autorize__logo {
+  margin-top: 70px;
+}
+
+.autorize__heading {
+  margin: 36px 0 40px 0;
+  color: white;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: left;
+
+}
+
+.autorize__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.autorize__label {
+  color: #888888;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 12px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.autorize__label_error {
+  margin-top: 5px;
+  color: #EE3465;
+  opacity: 0;
+}
+
+.autorize__input {
+  margin-top: 10px;
+  padding: 15px;
+  border-radius: 8px;
+  border: none;
+  color: white;
+  background: #2F2F2F;
+}
+
+.autorize__submit {
+  margin-top: 73px;
+  border: none;
+  color: #FFFFFF;
+  background: #4285F4;
+  border-radius: 3px;
+  padding: 13px 0 15px 0;
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+.autorize__submit_login{
+  margin-top: 161px;
+}
+
+.autorize__paragraph {
+  margin: 16px 0 0 0;
+  padding-bottom: 70px;
+  color: #8B8B8B;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.autorize__link {
+  margin-left: 6px;
+  text-decoration: none;
+  color: #4285F4;
+
+}

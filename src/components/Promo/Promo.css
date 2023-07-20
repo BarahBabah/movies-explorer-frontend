@@ -1,0 +1,27 @@
+.promo {
+  /* width: 100%; */
+  padding: 20px 40px 0px 40px;
+}
+
+.promo__container {
+  background: #272727;
+  width: 100%;
+  max-width: 1200px;
+  min-height: 493px;
+  border-radius: 10px;
+
+}
+
+.promo__title {
+  color: #FFFFFF;
+  margin: auto;
+  max-width: 730px;
+  padding-top: 160px;
+  font-family: Inter;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 58px;
+  letter-spacing: -0.04em;
+  text-align: center;
+
+}

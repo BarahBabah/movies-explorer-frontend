@@ -1,0 +1,117 @@
+.search-form {
+  max-width: calc(1280px - 140px);
+  margin: auto;
+  min-height: 247px;
+}
+
+.search-form__container {
+  padding-top: 60px;
+}
+
+.search-form__label {
+  background: #2F2F2F;
+  border-radius: 40px;
+  display: grid;
+  grid-template-columns: 1fr 70px;
+  align-items: center;
+  justify-items: center;
+}
+
+.search-form__input {
+  /* min-width: calc(1140px - 22px - 80px); */
+  width: 100%;
+  height: 46px;
+  background: transparent;
+  border: 0;
+  color: white;
+  padding: 0;
+  /* padding-left: 22px; */
+  margin-left: 22px;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0px;
+  text-align: left;
+  outline: none;
+}
+
+.seacrh-form__input::placeholder {
+  color: #8B8B8B;
+}
+
+.search-form__submit {
+  padding: 0px;
+  border-radius: 40px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0px;
+  text-align: center;
+
+  color: white;
+  border: 0;
+  width: 58.649993896484375px;
+  height: 34px;
+  background: #4285F4;
+}
+
+.search-form__options {
+  margin-top: 41px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #424242;
+  padding-bottom: 70px;
+
+}
+
+.search-from__option-checkbox-label {
+  position: relative;
+  display: inline-block;
+  width: 34px;
+  height: 14px;
+}
+
+.search-form__option-checkbox {
+  display: none;
+}
+
+.search-form__checkbox-custom {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #EBEBEB;
+  border-radius: 20px;
+  transition: 0.4s;
+}
+
+.search-form__checkbox-custom::before {
+  position: absolute;
+  content: "";
+  height: 10px;
+  width: 10px;
+  left: 2px;
+  bottom: 2px;
+  background-color: whitesmoke;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+.search-form__option-checkbox:checked + .search-form__checkbox-custom  {
+  background: #3DDC84;
+}
+.search-form__option-checkbox:checked +.search-form__checkbox-custom::before{
+  transform: translateX(20px);
+}
+.search-form__option-text {
+  margin-left: 12px;
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+
+}

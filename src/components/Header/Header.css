@@ -1,0 +1,59 @@
+.header {
+  margin: auto;
+  background-color: #202020;
+  width: auto;
+  min-height: 74px;
+  max-width: calc(1280px - 140px);
+}
+
+.header__container {
+  display: flex;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  align-items:center;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+
+
+}
+.header__auth-container{
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+}
+
+.header__button {
+  text-decoration: none;
+  color: #000000;
+  background: #3DDC84;
+  /* x */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 76px;
+  height: 32px;
+  border-radius: 3px;
+  /* x */
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: left;
+}
+
+.header__link {
+  padding-right: 30px;
+
+  text-decoration: none;
+  color: #FFFFFF;
+
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: right;
+}
+.header__logo-link{
+  height: 37px;
+  width: 37px;
+}
