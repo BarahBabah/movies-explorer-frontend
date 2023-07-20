@@ -19,6 +19,9 @@ function MoviesCardList(props) {
             <MoviesCard />
             <MoviesCard />
             <MoviesCard />
+            <MoviesCard />
+            <MoviesCard />
+            <MoviesCard />
           </>
         )}
         {location.pathname === '/saved-movies' && (

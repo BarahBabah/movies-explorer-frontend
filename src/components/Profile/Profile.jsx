@@ -1,7 +1,9 @@
 import { useState } from "react";
 import './Profile.css'
-function Profile() {
-
+function Profile({ onLogout }) {
+  function handleLogout() {
+    onLogout();
+  }
   const [name, setName] = useState('Виталий');
   const [email, setEmail] = useState('pochta@yandex.ru');
 
@@ -26,7 +28,7 @@ function Profile() {
         </div>
         {/* <p className="profile__error">При обновлении профиля произошла ошибка.</p> */}
         <button type="submit" className="profile__button profile__button_submit button-hover">Редактировать</button>
-        <button type="button" className="profile__button profile__button_logout button-hover">Выйти из аккаунта</button>
+        <button type="button" className="profile__button profile__button_logout button-hover" onClick={handleLogout}>Выйти из аккаунта</button>
       </form>
     </section>
   )

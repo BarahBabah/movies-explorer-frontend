@@ -1,0 +1,41 @@
+.navigation {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.navigation__link {
+  text-decoration: none;
+  color: white;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: right;
+}
+.navigation__link:nth-child(1) {
+  margin-left: 44px;
+}
+.navigation__link:nth-child(2) {
+  margin-left: 16px;
+}
+
+.navigation__link:nth-child(3) {
+  margin-left: auto;
+}
+
+.navigation__link_movies {
+  font-weight: 500;
+}
+
+.navigation__link_account {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.navigation__image {
+  border-radius: 6px;
+  width: 100px;
+  height: 32px;
+}
