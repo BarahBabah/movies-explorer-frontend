@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import Preloader from '../Preloader/Preloader.jsx';
 import Header from './../Header/Header.jsx'
-import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import Footer from '../Footer/Footer.jsx';
 import Main from '../Main/Main.jsx';
 import Movies from '../Movies/Movies.jsx'
@@ -9,60 +10,28 @@ import NotFound from '../NotFound/NotFound.jsx';
 import Profile from '../Profile/Profile.jsx'
 import Login from '../Autorize/Login.jsx';
 import Register from '../Autorize/Register.jsx';
-import * as auth from './../../utils/auth.js';
+import useAuth from '../../hooks/useAuth.js'
+import { handleTokenCheck } from './../../utils/token.js';
 function App() {
+
   const location = useLocation();
   const navigate = useNavigate();
 
-  const [isLoggedIn, setLoggedIn] = useState(false);
+  const { isLoggedIn, setLoggedIn, handleRegister, handleAuthorize, handleLogout } = useAuth();
+
+  const [isLoading, setLoading] = useState(true);
+  const [profileEmail, setProfileEmail] = useState('');
+  const [profileName, setProfileName] = useState('');
 
   useEffect(() => {
-    handleTokenCheck();
-  }, [])
+    handleTokenCheck(navigate, setLoggedIn, setProfileEmail, setProfileName);
+  }, []);
 
-  // новое
-  function handleTokenCheck() {
-    const jwt = localStorage.getItem('jwt');
-    if (jwt) {
-      auth.getContent(jwt)
-        .then(response => {
-          if (response) {
-            setLoggedIn(true);
-            navigate('/');
-          }
-        })
-    }
-  }
-
-  // Регистрация и авторизация
-  function handleRegister(email, password, name) {
-    auth.register(email, password, name)
-      .then(response => {
-        if (response) {
-          navigate('/signin');
-        }
-      }).catch(err => {
-        console.log(err);
-      })
-  }
-  function handleAuthorize(email, password) {
-    auth.authorize(email, password)
-      .then(response => {
-        if (response) {
-          localStorage.setItem('jwt', response.token);
-          setLoggedIn(true);
-          navigate('/movies');
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      })
-  }
-  function handleLogout() {
-    setLoggedIn(false);
-    localStorage.removeItem('jwt');
-    navigate('/');
-  };
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
 
   const isContentPage = () => {
     const path = location.pathname;
@@ -71,6 +40,7 @@ function App() {
 
   return (
     <>
+      {isLoading && <Preloader />}
       {isContentPage() && <Header loggedIn={isLoggedIn} />}
       <Routes>
         <Route path='/' element={<Main />} />
