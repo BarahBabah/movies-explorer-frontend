@@ -11,3 +11,27 @@
   row-gap: 30px;
   column-gap: 24px;
 }
+
+@media screen and (max-width: 1024px) {
+  .movies__list {
+    padding: 65px 0 30px 0;
+    margin: 0 30px 0 30px;
+    grid-auto-columns: 339px;
+    grid-auto-rows: 258px;
+    grid-template-columns: repeat(auto-fit, 339px);
+    row-gap: 36px;
+    column-gap: 30px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .movies__list {
+    padding: 40px 0 30px 0;
+    margin: 0 10px 0 10px;
+    grid-auto-columns: 300px;
+    grid-auto-rows: 236px;
+    grid-template-columns: repeat(auto-fit, 300px);
+    row-gap: 16px;
+    column-gap: 30px;
+  }
+}

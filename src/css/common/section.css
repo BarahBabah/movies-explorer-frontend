@@ -1,0 +1,33 @@
+.section{
+/* буду тут что-то делать, только если скажут */
+}
+.section__title {
+  border-bottom: 1px solid;
+  padding: 100px 0px 23px 0px;
+  margin: 0;
+  width: 100%;
+  color: #FFFFFF;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 27px;
+  letter-spacing: -0.04em;
+  text-align: left;
+}
+
+.section__subtitle {
+  color: #FFFFFF;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 58px;
+  letter-spacing: -0.04em;
+  text-align: center;
+}
+
+.section__paragraph {
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0px;
+  text-align: left;
+}

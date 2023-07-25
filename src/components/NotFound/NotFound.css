@@ -44,3 +44,88 @@
   text-align: center;
 
 }
+
+/* @media screen and (max-width: 768px) {
+  .not-found__heading {
+    margin: 408px 0 0 0;
+
+  }
+
+  .not-found {
+    min-height: 1024px;
+  }
+} */
+
+/* @media screen and (max-width: 320px) {
+  .not-found__heading {
+    margin: 329px 0 0 0;
+    font-size: 80px;
+    font-weight: 400;
+    line-height: 97px;
+  }
+
+  .not-found {
+    min-height: 780px;
+  }
+
+  .not-found__paragraph {
+    margin: 10px 0 0 0;
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .return {
+    margin-top: 284px;
+    font-size: 12px;
+    line-height: 15px;
+  }
+} */
+
+
+/* Стили для экранов шире 1280px */
+/* Ваши стили здесь */
+
+/* Стили для экранов шириной от 768px до 1280px */
+@media screen and (max-width: 1279px) {
+  /* Ваши стили здесь */
+  .not-found__heading {
+    margin: 408px 0 0 0;
+
+  }
+
+  .not-found {
+    min-height: 1024px;
+  }
+}
+
+/* Стили для экранов шириной от 320px до 768px */
+@media screen and (max-width: 767px) {
+  /* Ваши стили здесь */
+  .not-found__heading {
+    margin: 329px 0 0 0;
+    font-size: 80px;
+    font-weight: 400;
+    line-height: 97px;
+  }
+
+  .not-found {
+    min-height: 780px;
+  }
+
+  .not-found__paragraph {
+    margin: 10px 0 0 0;
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .return {
+    margin-top: 284px;
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
+
+ /* Стили для экранов шире или равных 320px */
+@media screen and (max-width: 320px) {
+  /* Ваши стили здесь */
+}

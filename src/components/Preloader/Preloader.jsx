@@ -1,7 +1,14 @@
 import { useEffect, useState } from 'react'
 import './Preloader.css'
 
-const Preloader = () => {
+const Preloader = ({setLoading}) => {
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 300);
+  }, []);
+
+
   return (
     <div className="preloader">
       <div className="preloader__container">

@@ -26,7 +26,7 @@ function Register({ onRegister }) {
   return (
     <div className="autorize">
       <div className="autorize__container">
-        <Link to="/">
+        <Link className="autorize__logo-link" to="/">
           <img className="autorize__logo" src={logo} alt="логотип" />
         </Link>
         <h1 className="autorize__heading">Добро пожаловать!</h1>

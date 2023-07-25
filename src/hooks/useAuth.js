@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as auth from './../utils/auth.js';
 
 const useAuth = () => {
   const [isLoggedIn, setLoggedIn] = useState(false);
+  const [profileEmail, setProfileEmail] = useState('');
+  const [profileName, setProfileName] = useState('');
   const navigate = useNavigate();
 
   // Регистрация и авторизация
@@ -38,8 +40,18 @@ const useAuth = () => {
     setLoggedIn(false);
     navigate('/');
   };
-
-  return { isLoggedIn, setLoggedIn,  handleRegister, handleAuthorize, handleLogout };
+  const handleTokenCheck = () => {
+    const jwt = localStorage.getItem('jwt');
+    if (jwt) {
+      auth.getContent(jwt)
+        .then(response => {
+          if (response) {
+            setLoggedIn(true);
+          }
+        });
+    }
+  }
+  return { isLoggedIn, profileEmail, setLoggedIn, handleRegister, handleAuthorize, handleLogout, handleTokenCheck };
 };
 
 export default useAuth;
