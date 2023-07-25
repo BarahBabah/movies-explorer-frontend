@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import Portfolio from "../Portfolio/Portfolio";
 import "./AboutMe.css";
 import photo from "./../../images/photo.png";

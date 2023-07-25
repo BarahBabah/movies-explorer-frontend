@@ -1,12 +1,12 @@
-.section{
-/* буду тут что-то делать, только если скажут */
+.section {
+  /* буду тут что-то делать, только если скажут */
 }
 .section__title {
   border-bottom: 1px solid;
   padding: 100px 0px 23px 0px;
   margin: 0;
   width: 100%;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 22px;
   font-weight: 400;
   line-height: 27px;
@@ -15,7 +15,7 @@
 }
 
 .section__subtitle {
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 50px;
   font-weight: 400;
   line-height: 58px;

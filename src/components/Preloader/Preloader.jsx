@@ -1,13 +1,12 @@
-import { useEffect, useState } from 'react'
-import './Preloader.css'
+import { useEffect } from "react";
+import "./Preloader.css";
 
-const Preloader = ({setLoading}) => {
+const Preloader = ({ setLoading }) => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
     }, 300);
   }, []);
-
 
   return (
     <div className="preloader">
@@ -15,7 +14,7 @@ const Preloader = ({setLoading}) => {
         <span className="preloader__round"></span>
       </div>
     </div>
-  )
+  );
 };
 
 export default Preloader;
