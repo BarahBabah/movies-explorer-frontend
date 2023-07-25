@@ -21,7 +21,6 @@
   line-height: 29px;
   letter-spacing: 0em;
   text-align: center;
-
 }
 
 .profile__form-container {
@@ -36,7 +35,6 @@
 .profile__input {
   max-width: 122px;
   min-height: 14px;
-
   text-align: end;
   color: white;
   margin: 0 0 0 auto;
@@ -49,15 +47,12 @@
 .profile__label {
   display: flex;
   color: white;
-
   padding-top: 16px;
-
   font-size: 11px;
   font-weight: 500;
   line-height: 13px;
   letter-spacing: 0px;
   text-align: left;
-
 }
 
 .profile__label:first-child {
@@ -77,7 +72,7 @@
 
 .profile__button_logout {
   margin-top: 16px;
-  color: #EE3465;
+  color: #ee3465;
   font-weight: 500;
 }
 
@@ -87,7 +82,7 @@
   font-weight: 400;
 }
 
-@media screen and (max-width:1024px) {
+@media screen and (max-width: 1024px) {
   .profile {
     min-height: 1024px;
   }
@@ -105,7 +100,7 @@
   }
 }
 
-@media screen and (max-width:767px) {
+@media screen and (max-width: 767px) {
   .profile {
     margin: 0 30px 0 30px;
   }

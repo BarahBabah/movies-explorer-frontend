@@ -1,14 +1,14 @@
 import React from "react";
-import { Link, useLocation } from 'react-router-dom';
-import './MoviesCardList.css'
+import { useLocation } from "react-router-dom";
+import "./MoviesCardList.css";
 import MoviesCard from "../MoviesCard/MoviesCard";
 function MoviesCardList(props) {
   const location = useLocation();
 
   return (
     <section className="">
-      <ol className='movies__list'>
-        {location.pathname === '/movies' && (
+      <ol className="movies__list">
+        {location.pathname === "/movies" && (
           <>
             <MoviesCard />
             <MoviesCard />
@@ -24,14 +24,13 @@ function MoviesCardList(props) {
             <MoviesCard />
           </>
         )}
-        {location.pathname === '/saved-movies' && (
+        {location.pathname === "/saved-movies" && (
           <>
             <MoviesCard />
             <MoviesCard />
             <MoviesCard />
           </>
         )}
-
       </ol>
     </section>
   );

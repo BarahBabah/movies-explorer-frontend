@@ -11,6 +11,6 @@ function Main() {
       <Techs />
       <AboutMe />
     </>
-  )
+  );
 }
 export default Main;

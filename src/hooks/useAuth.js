@@ -1,57 +1,66 @@
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import * as auth from './../utils/auth.js';
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import * as auth from "./../utils/auth.js";
 
 const useAuth = () => {
   const [isLoggedIn, setLoggedIn] = useState(false);
-  const [profileEmail, setProfileEmail] = useState('');
-  const [profileName, setProfileName] = useState('');
+  const [profileEmail, setProfileEmail] = useState("");
+  const [profileName, setProfileName] = useState("");
   const navigate = useNavigate();
 
   // Регистрация и авторизация
   const handleRegister = (email, password, name) => {
-    auth.register(email, password, name)
-      .then(response => {
+    auth
+      .register(email, password, name)
+      .then((response) => {
         if (response) {
-          navigate('/signin');
+          navigate("/signin");
         }
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   };
 
   const handleAuthorize = (email, password) => {
-    auth.authorize(email, password)
-      .then(response => {
+    auth
+      .authorize(email, password)
+      .then((response) => {
         if (response) {
-          localStorage.setItem('jwt', response.token);
+          localStorage.setItem("jwt", response.token);
           setLoggedIn(true);
-          navigate('/movies');
+          navigate("/movies");
         }
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('jwt');
+    localStorage.removeItem("jwt");
     setLoggedIn(false);
-    navigate('/');
+    navigate("/");
   };
   const handleTokenCheck = () => {
-    const jwt = localStorage.getItem('jwt');
+    const jwt = localStorage.getItem("jwt");
     if (jwt) {
-      auth.getContent(jwt)
-        .then(response => {
-          if (response) {
-            setLoggedIn(true);
-          }
-        });
+      auth.getContent(jwt).then((response) => {
+        if (response) {
+          setLoggedIn(true);
+        }
+      });
     }
-  }
-  return { isLoggedIn, profileEmail, setLoggedIn, handleRegister, handleAuthorize, handleLogout, handleTokenCheck };
+  };
+  return {
+    isLoggedIn,
+    profileEmail,
+    setLoggedIn,
+    handleRegister,
+    handleAuthorize,
+    handleLogout,
+    handleTokenCheck,
+  };
 };
 
 export default useAuth;

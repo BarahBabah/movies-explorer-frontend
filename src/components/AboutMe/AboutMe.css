@@ -9,7 +9,7 @@
   padding: 110px 0 23px 0;
   margin: 0;
   width: 100%;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 22px;
   font-weight: 400;
   line-height: 27px;
@@ -17,49 +17,38 @@
   text-align: left;
 }
 
-.about-me-person-container {
-  /* grid-area: container; */
-}
-
 .about-me-container {
   margin-top: 66px;
   display: grid;
   justify-content: space-between;
-  /* grid-template-areas:
-    'container photo'
-  ; */
   grid-template-columns: 2 auto;
   grid-auto-flow: column;
-  /* Будет создано 3 ряда */
 }
 
 .about-me-subtitle {
   margin: 0;
-  /* grid-area: subtitle; */
   color: white;
   font-size: 50px;
   font-weight: 400;
   line-height: 58px;
   letter-spacing: -0.04em;
-  /* text-align: left;/ */
 }
 
 .about-me__personal {
   margin: 18px 0px 0px 0px;
-  /* grid-area: personal; */
+
   color: white;
   font-size: 18px;
   font-weight: 500;
   line-height: 20px;
   letter-spacing: 0px;
   text-align: left;
-
 }
 
 .about-me__paragraph {
   margin: 26px 0px 0px 0px;
   max-width: 600px;
-  /* grid-area: paragraph; */
+
   color: white;
   font-family: Inter;
   font-size: 14px;
@@ -67,11 +56,9 @@
   line-height: 22px;
   letter-spacing: 0px;
   text-align: left;
-
 }
 
 .about-me__photo {
-  /* grid-area: photo; */
   max-width: 270px;
   max-height: 327px;
   border-radius: 10px;
@@ -80,13 +67,10 @@
 .github {
   display: flex;
   text-decoration: none;
-  /* align-items: flex-end; */
-  /* flex-direction: column; */
   margin: 99px 0px 0px 0px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 14px;
   font-weight: 500;
   line-height: 17px;
   text-align: left;
-  /* grid-area: github; */
 }

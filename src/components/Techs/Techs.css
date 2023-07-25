@@ -13,7 +13,7 @@
   padding: 100px 0px 23px 0px;
   margin: 0;
   width: 100%;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 22px;
   font-weight: 400;
   line-height: 27px;
@@ -23,19 +23,17 @@
 
 .techs__subtitle {
   margin: 90px 0px 0px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 50px;
   font-weight: 400;
   line-height: 58px;
   letter-spacing: -0.04em;
   text-align: center;
-
-
 }
 
 .techs__paragraph {
   padding-top: 26px;
-  color: #FFFFFF;
+  color: #ffffff;
   margin: auto;
   max-width: 460px;
   font-size: 14px;
@@ -43,7 +41,6 @@
   line-height: 20px;
   letter-spacing: -0.04em;
   text-align: center;
-
 }
 
 .techs__list {
@@ -68,8 +65,6 @@
   line-height: 17px;
   letter-spacing: -0.04em;
   text-align: center;
-
-
 }
 
 .techs__item:not(:first-child) {

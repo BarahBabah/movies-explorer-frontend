@@ -1,5 +1,4 @@
 .promo {
-  /* width: 100%; */
   padding: 20px 40px 0px 40px;
 }
 
@@ -9,11 +8,10 @@
   max-width: 1200px;
   min-height: 493px;
   border-radius: 10px;
-
 }
 
 .promo__title {
-  color: #FFFFFF;
+  color: #ffffff;
   margin: auto;
   max-width: 730px;
   padding-top: 160px;
@@ -23,5 +21,4 @@
   line-height: 58px;
   letter-spacing: -0.04em;
   text-align: center;
-
 }

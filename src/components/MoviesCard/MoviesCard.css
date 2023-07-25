@@ -12,13 +12,12 @@
   margin: 0;
   padding: 0;
   padding-top: 9px;
-  color: #8B8B8B;
+  color: #8b8b8b;
   font-size: 11px;
   font-weight: 400;
   line-height: 13px;
   letter-spacing: 0px;
   text-align: left;
-
 }
 
 .card__heading {
@@ -53,18 +52,13 @@
   object-fit: cover;
 }
 
-@media screen and (max-width:1024px) {
-  .card {
-
-  }
+@media screen and (max-width: 1024px) {
   .card__thumbnail {
     height: 190px;
   }
 }
-@media screen and (max-width:1024px) {
-  .card {
 
-  }
+@media screen and (max-width: 1024px) {
   .card__thumbnail {
     height: 168px;
   }

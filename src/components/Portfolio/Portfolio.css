@@ -3,14 +3,13 @@
 }
 
 .portfolio__title {
-  color: #8B8B8B;
+  color: #8b8b8b;
   margin: 0;
   font-size: 18px;
   font-weight: 400;
   line-height: 20px;
   letter-spacing: 0px;
   text-align: left;
-
 }
 
 .portfolio__list {
@@ -20,12 +19,12 @@
 }
 
 .portfolio__item {
-  /* padding-top: 20px; */
   padding-bottom: 19px;
   border-bottom: 1px solid #424242;
   background: url(./../../images/arrow.svg) no-repeat 1116px 38px;
 }
-.portfolio__link{
+
+.portfolio__link {
   text-decoration: none;
   color: white;
   font-size: 30px;
@@ -34,6 +33,7 @@
   letter-spacing: -0.04em;
   text-align: left;
 }
+
 .portfolio__item:first-child {
   background-position: 1116px 18px;
 }
