@@ -25,7 +25,7 @@
 .header__button {
   text-decoration: none;
   color: #000000;
-  background: #3DDC84;
+  background: #3ddc84;
   /* x */
   display: flex;
   justify-content: center;
@@ -44,7 +44,7 @@
   padding-right: 30px;
   /* x */
   text-decoration: none;
-  color: #FFFFFF;
+  color: #ffffff;
   /* x */
   font-size: 12px;
   font-weight: 500;
@@ -63,37 +63,11 @@
   width: 37px;
 }
 
-.navigation__menu {
-  display: none;
-  padding: 0;
-  border: 0;
-  width: 44px;
-  height: 44px;
-  background: url(../../images/burger.svg) no-repeat;
-}
-
-.navigation__menu_exit {
-  margin-top: 27.16px;
-  margin-right: 27.16px;
-  background: url(../../images/exit.svg) no-repeat center;
-  width: 22px;
-  height: 22px;
-}
-
 @media screen and (max-width: 1024px) {
   .header__container {
     padding-right: 30px;
     padding-left: 30px;
   }
-
-  .navigation__menu {
-    margin-left: auto;
-    display: flex;
-  }
-}
-
-.navigation__menu_active {
-  display: flex;
 }
 
 @media screen and (max-width: 767px) {

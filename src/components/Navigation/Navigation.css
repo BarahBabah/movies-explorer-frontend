@@ -47,7 +47,7 @@
   display: flex;
 }
 
-.navigation__menu_active {
+.navigation.navigation__menu_active {
   display: flex;
 }
 
@@ -63,6 +63,7 @@
 .navigation__menu_active {
   display: flex;
 }
+
 .navigation__menu_exit {
   margin-top: 27.16px;
   margin-right: 27.16px;
@@ -71,15 +72,11 @@
   height: 22px;
 }
 
-
-
-
 @media screen and (max-width: 1024px) {
   .navigation {
     display: none;
     position: fixed;
     overflow-x: auto;
-
     top: 0;
     right: 0;
     z-index: 1;
@@ -89,18 +86,19 @@
     height: 100%;
   }
 
+  .navigation__menu {
+    margin-left: auto;
+    display: flex;
+  }
+
   .navigation__menu_exit {
     min-height: 22px;
   }
 
   .navigation__link {
-    font-family: Inter;
     font-size: 18px;
     font-weight: 500;
     line-height: 22px;
-    letter-spacing: 0px;
-    text-align: center;
-
   }
 
   .navigation__link {
