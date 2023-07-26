@@ -127,7 +127,7 @@
   }
 
   .search-form__container {
-    padding-top: 74px;
+    padding-top: 79px;
   }
 
   .search-form__options {
@@ -138,10 +138,6 @@
 @media screen and (max-width: 767px) {
   .search-form {
     margin: 0 14px 0 14px;
-  }
-
-  .search-form__container {
-    padding-top: 79px;
   }
 
   .search-form__options {
