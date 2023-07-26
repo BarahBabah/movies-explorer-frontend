@@ -1,9 +1,6 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
 import "./AboutProject.css";
 function AboutProject(props) {
-  const location = useLocation();
-
   return (
     <section className="about-project" id="project">
       <h2 className="about-project__title">О проекте</h2>

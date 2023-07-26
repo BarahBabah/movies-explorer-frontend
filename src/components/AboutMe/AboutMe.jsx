@@ -1,3 +1,4 @@
+import React from "react";
 import Portfolio from "../Portfolio/Portfolio";
 import "./AboutMe.css";
 import photo from "./../../images/photo.png";

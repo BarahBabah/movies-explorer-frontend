@@ -97,6 +97,7 @@
     min-height: 57px;
   }
 }
+
 @media screen and (max-width: 767px) {
   .techs {
     min-height: 651px;
@@ -131,6 +132,8 @@
   .techs__item:not(:first-child) {
     margin-left: 0px;
   }
+}
+@media screen and (max-width: 320px) {
   .techs__item:last-child {
     margin-right: auto;
   }
