@@ -86,7 +86,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: #ebebeb;
+  background-color: #343434;
   border-radius: 20px;
   transition: 0.4s;
 }
@@ -98,7 +98,7 @@
   width: 10px;
   left: 2px;
   bottom: 2px;
-  background-color: whitesmoke;
+  background-color: #a0a0a0;
   border-radius: 50%;
   transition: 0.4s;
 }
@@ -109,8 +109,15 @@
 
 .search-form__option-checkbox:checked + .search-form__checkbox-custom::before {
   transform: translateX(20px);
+  background: #ffffff;
 }
-
+.search-form__checkbox-custom:hover::before {
+  transform: matrix(1, 0, 0, 1, 2, 0);
+}
+.search-form__option-checkbox:checked
+  + .search-form__checkbox-custom:hover::before {
+  transform: matrix(1, 0, 0, 1, 18, 0);
+}
 .search-form__option-text {
   margin-left: 12px;
   color: white;
