@@ -41,3 +41,43 @@
 .portfolio__item:not(:first-child) {
   padding-top: 20px;
 }
+@media screen and (max-width: 1279px) {
+  .portfolio__item {
+    background: url(./../../images/arrow.svg) no-repeat 99% 38px;
+  }
+  .portfolio__item:first-child {
+    background-position: 99% 18px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .portfolio {
+    margin-top: 90px;
+  }
+  .portfolio__link {
+    font-size: 28px;
+    line-height: 50px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .portfolio {
+    margin-top: 70px;
+  }
+  .portfolio__title {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .portfolio__list {
+    margin-top: 40px;
+  }
+  .portfolio__item {
+    background-size: 10px;
+    background-position: 99% 27px;
+  }
+  .portfolio__item:first-child {
+    background-position: 99% 7px;
+  }
+  .portfolio__link {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}

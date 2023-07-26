@@ -1,6 +1,6 @@
 .navtab-list {
   margin: 0;
-  padding: 151px 0px 0px 0px;
+  padding: 151px 0 0 0;
   list-style-type: none;
   display: flex;
   flex-direction: row;
@@ -27,4 +27,25 @@
 
 .navtab-item:not(:first-child) {
   margin-left: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+  .navtab-list {
+    padding: 314px 0 0 0;
+  }
+}
+@media screen and (max-width: 767px) {
+  .navtab-list {
+    padding: 212px 0 0 0;
+  }
+  .navtab-link {
+    font-size: 10px;
+  }
+  .navtab-item {
+    min-width: 82px;
+    min-height: 26px;
+  }
+  .navtab-item:not(:first-child) {
+    margin-left: 6px;
+  }
 }
