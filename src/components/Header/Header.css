@@ -60,11 +60,22 @@
   height: 37px;
   width: 37px;
 }
-
+.header__menu {
+  display: none;
+  padding: 0;
+  border: 0;
+  width: 44px;
+  height: 44px;
+  background: url(../../images/burger.svg) no-repeat;
+}
 @media screen and (max-width: 1024px) {
   .header__container {
     padding-right: 30px;
     padding-left: 30px;
+  }
+  .header__menu {
+    margin-left: auto;
+    display: flex;
   }
 }
 

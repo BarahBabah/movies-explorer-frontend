@@ -19,7 +19,7 @@ function Header({ loggedIn }) {
         {loggedIn ? (
           <>
             <button
-              className={`navigation__menu`}
+              className={`header__menu`}
               onClick={handleBurgerMenuToggle}
             ></button>
             <Navigation

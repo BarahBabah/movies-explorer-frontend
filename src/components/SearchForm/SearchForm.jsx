@@ -13,7 +13,7 @@ function SearchForm(props) {
           <button className="search-form__submit button-hover">Найти</button>
         </div>
         <div className="search-form__options">
-          <label className="search-from__option-checkbox-label">
+          <label className="search-form__option-checkbox-label">
             <input type="checkbox" className="search-form__option-checkbox" />
             <span className="search-form__checkbox-custom"></span>
           </label>
