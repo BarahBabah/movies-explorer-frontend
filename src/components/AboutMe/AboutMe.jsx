@@ -21,7 +21,7 @@ function AboutMe() {
               заниматься фриланс-заказами и ушёл с&nbsp;постоянной работы.
             </p>
             <a
-              className="github"
+              className="github link-hover"
               target="blank"
               href="https://github.com/BarahBabah"
             >

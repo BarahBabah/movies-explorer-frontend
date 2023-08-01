@@ -2,7 +2,9 @@
   background: #202020;
   min-height: 700px;
 }
-
+.autorize__input:focus {
+  outline: 1px solid #e8e8e8;
+}
 .autorize__container {
   margin: 0 auto 0 auto;
   max-width: calc(1280px - (442px * 2));

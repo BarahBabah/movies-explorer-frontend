@@ -4,11 +4,13 @@ import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import More from "../More/More";
 function Movies(props) {
   return (
-    <section className="movies">
-      <SearchForm />
-      <MoviesCardList />
-      <More />
-    </section>
+    <main className="main">
+      <section className="movies">
+        <SearchForm />
+        <MoviesCardList />
+        <More />
+      </section>
+    </main>
   );
 }
 export default Movies;

@@ -3,7 +3,7 @@
   margin: auto;
   display: flex;
   justify-content: center;
-  height: 166px;
+  min-height: 166px;
 }
 
 .more__button {
@@ -20,4 +20,9 @@
   width: 320px;
   height: 36px;
   border-radius: 6px;
+}
+@media screen and (max-width: 767px) {
+  .more__button {
+    width: 240px;
+  }
 }

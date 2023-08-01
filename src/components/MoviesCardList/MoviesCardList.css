@@ -9,11 +9,7 @@
   grid-template-columns: repeat(auto-fit, 364px);
   row-gap: 30px;
   column-gap: 24px;
-}
-@media screen and (max-width: 1139px) {
-  .movies__list {
-    justify-content: center;
-  }
+  justify-content: center;
 }
 @media screen and (max-width: 1024px) {
   .movies__list {

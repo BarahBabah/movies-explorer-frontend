@@ -11,7 +11,8 @@ function Portfolio() {
             target="blank"
             href="https://github.com/BarahBabah/how-to-learn"
           >
-            Статичный сайт
+            <p className="portfolio__link-paragraph">Статичный сайт</p>
+            <span className="portfolio__link-arrow">↗</span>
           </a>
         </li>
         <li className="portfolio__item">
@@ -20,7 +21,8 @@ function Portfolio() {
             target="blank"
             href="https://github.com/BarahBabah/russian-travel"
           >
-            Адаптивный сайт
+            <p className="portfolio__link-paragraph">Адаптивный сайт</p>
+            <span className="portfolio__link-arrow">↗</span>
           </a>
           {/* репозиторий проекта удален, ссылки не будет */}
         </li>
@@ -30,7 +32,10 @@ function Portfolio() {
             target="blank"
             href="https://github.com/BarahBabah/react-mesto-api-full-gha"
           >
-            Одностраничное приложение
+            <p className="portfolio__link-paragraph">
+              Одностраничное приложение
+            </p>
+            <span className="portfolio__link-arrow">↗</span>
           </a>
         </li>
       </ul>
