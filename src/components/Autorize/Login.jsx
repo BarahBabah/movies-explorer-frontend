@@ -66,6 +66,9 @@ function Login({ onAuthorize }) {
             >
               Что-то пошло не так...
             </label>
+            <label className="autorize__label autorize__label_error autorize__label_error-submit autorize__label_error-submit_login">
+              323124
+            </label>
             <button
               type="submit"
               className="autorize__submit autorize__submit_login button-hover"
