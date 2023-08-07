@@ -1,0 +1,129 @@
+.profile {
+  max-width: calc(1280px - 140px);
+  margin: auto;
+  min-height: 626px;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile__heading {
+  color: white;
+  margin: 74px 0 0 0;
+
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.profile__form-container {
+  margin-top: 108px;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 410px;
+}
+
+.profile__input {
+  max-width: 122px;
+  min-height: 14px;
+  text-align: end;
+  color: white;
+  margin: 0 0 0 auto;
+  padding: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.profile__label {
+  display: flex;
+  color: white;
+  padding-top: 16px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 13px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.profile__label:first-child {
+  padding-bottom: 16px;
+  border-bottom: 1px solid #424242;
+}
+
+.profile__button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: center;
+}
+
+.profile__button_logout {
+  margin-top: 16px;
+  color: #ee3465;
+  font-weight: 500;
+}
+
+.profile__button_submit {
+  margin-top: 220px;
+  color: white;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 1024px) {
+  .profile {
+    min-height: 1024px;
+  }
+
+  .profile__heading {
+    margin-top: 230px;
+  }
+
+  .profile__form-container {
+    margin-top: 80px;
+  }
+
+  .profile__button_submit {
+    margin-top: 210px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .profile {
+    margin: 0 30px 0 30px;
+  }
+
+  .profile__heading {
+    margin-top: 64px;
+  }
+
+  .profile__form-container {
+    margin-top: 65px;
+  }
+
+  .profile__button {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+  }
+
+  .profile__button_submit {
+    margin-top: 379px;
+  }
+
+  .profile__button_logout {
+    font-weight: 500;
+  }
+}

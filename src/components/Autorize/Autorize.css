@@ -1,0 +1,144 @@
+.autorize {
+  background: #202020;
+  min-height: 700px;
+}
+.autorize__input:focus {
+  outline: 1px solid #e8e8e8;
+}
+.autorize__container {
+  margin: 0 auto 0 auto;
+  max-width: calc(1280px - (442px * 2));
+}
+
+.autorize__logo {
+  margin-top: 70px;
+}
+
+.autorize__heading {
+  margin: 36px 0 40px 0;
+  color: white;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.autorize__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.autorize__label {
+  color: #888888;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 12px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.autorize__label_error {
+  margin-top: 5px;
+  color: #ee3465;
+  opacity: 0;
+}
+
+.autorize__input {
+  margin-top: 10px;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: 0em;
+  border: none;
+  color: white;
+  background: #2f2f2f;
+}
+
+.autorize__submit {
+  margin-top: 73px;
+  border: none;
+  color: #ffffff;
+  background: #4285f4;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 45px;
+  min-width: 396px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.autorize__submit_login {
+  margin-top: 161px;
+}
+
+.autorize__paragraph {
+  margin: 16px 0 0 0;
+  color: #8b8b8b;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.autorize__link {
+  margin-left: 6px;
+  text-decoration: none;
+  color: #4285f4;
+}
+
+@media screen and (max-width: 1279px) {
+  .autorize__logo {
+    margin-top: 232px;
+  }
+
+  .autorize {
+    min-height: 1024px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .autorize__logo {
+    margin-top: 56px;
+  }
+
+  .autorize {
+    min-height: 780px;
+  }
+
+  .autorize__container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .autorize__submit {
+    margin-top: 159px;
+    font-size: 12px;
+    line-height: 15px;
+    min-height: 45px;
+    min-width: 260px;
+  }
+
+  .autorize__submit_login {
+    margin-top: 248px;
+  }
+
+  .autorize__heading {
+    margin: 47px 0 80px 0;
+  }
+
+  .autorize__paragraph {
+    padding-bottom: 30px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+  }
+}

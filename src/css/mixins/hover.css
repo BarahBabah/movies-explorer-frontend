@@ -1,0 +1,13 @@
+.link-hover {
+}
+.link-hover:hover {
+  opacity: 0.7;
+  transition: 0.3s;
+}
+.button-hover {
+}
+.button-hover:hover {
+  opacity: 0.8;
+  transition: 0.3s;
+  cursor: pointer;
+}

@@ -1,0 +1,147 @@
+.about-me {
+  max-width: calc(1280px - 140px);
+  margin: auto;
+  min-height: 1079px;
+}
+
+.about-me__title {
+  border-bottom: 1px solid;
+  padding: 110px 0 23px 0;
+  margin: 0;
+  width: 100%;
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 27px;
+  letter-spacing: -0.04em;
+  text-align: left;
+}
+
+.about-me-container {
+  margin-top: 66px;
+  display: grid;
+  justify-content: space-between;
+  grid-auto-flow: column;
+}
+
+.about-me-subtitle {
+  margin: 0;
+  color: white;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 58px;
+  letter-spacing: -0.04em;
+}
+
+.about-me__personal {
+  margin: 0;
+  margin-top: 18px;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.about-me__paragraph {
+  padding: 0;
+  margin: 0;
+  margin-top: 26px;
+  max-width: 600px;
+  color: white;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.about-me__photo {
+  max-width: 270px;
+  max-height: 327px;
+  border-radius: 10px;
+}
+
+.github {
+  display: flex;
+  text-decoration: none;
+  margin-top: 99px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  text-align: left;
+}
+@media screen and (max-width: 1024px) {
+  .about-me {
+    min-height: 994px;
+    margin: 0 50px 0 50px;
+  }
+  .about-me__title {
+    padding-top: 90px;
+    font-size: 22px;
+    line-height: 27px;
+  }
+  .about-me-subtitle {
+    font-size: 40px;
+    line-height: 40px;
+  }
+  .about-me__personal {
+    margin-top: 16px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .about-me__paragraph {
+    padding-right: 49px;
+    margin-top: 20px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .about-me__photo {
+    max-width: 255px;
+    min-width: 255px;
+    max-height: 307px;
+  }
+  .github {
+    margin-top: 87px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .about-me {
+    margin: 0 14px 0 14px;
+    min-height: 1198px;
+  }
+  .about-me-container {
+    margin-top: 60px;
+    grid-auto-flow: row;
+  }
+  .about-me__title {
+    padding-top: 70px;
+    padding-bottom: 29px;
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .about-me-subtitle {
+    margin-top: 40px;
+    font-size: 30px;
+    line-height: 36px;
+  }
+  .about-me__personal {
+    margin-top: 20px;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 16px;
+  }
+  .about-me__paragraph {
+    padding-right: 0;
+    font-size: 11px;
+    line-height: 16px;
+  }
+  .about-me__photo {
+    order: -1;
+    min-height: 352px;
+    max-width: 292px;
+    min-width: 292px;
+  }
+  .github {
+    margin-top: 40px;
+  }
+}

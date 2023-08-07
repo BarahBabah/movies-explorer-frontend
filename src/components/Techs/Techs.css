@@ -1,0 +1,140 @@
+.techs {
+  background: #272727;
+  min-height: 625px;
+}
+
+.techs__container {
+  margin: auto;
+  max-width: calc(1280px - 140px);
+}
+
+.techs__title {
+  border-bottom: 1px solid;
+  padding: 100px 0px 23px 0px;
+  margin: 0;
+  width: 100%;
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 27px;
+  letter-spacing: -0.04em;
+  text-align: left;
+}
+
+.techs__subtitle {
+  margin: 90px 0px 0px;
+  color: #ffffff;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 58px;
+  letter-spacing: -0.04em;
+  text-align: center;
+}
+
+.techs__paragraph {
+  padding-top: 26px;
+  color: #ffffff;
+  margin: auto;
+  max-width: 460px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.04em;
+  text-align: center;
+}
+
+.techs__list {
+  list-style: none;
+  margin: 100px 0px 0px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.techs__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #303030;
+  color: white;
+  min-width: 90px;
+  min-height: 60px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: -0.04em;
+  text-align: center;
+}
+
+.techs__item:not(:first-child) {
+  margin-left: 10px;
+}
+@media screen and (max-width: 1024px) {
+  .techs {
+    min-height: 567px;
+  }
+  .techs__container {
+    margin: 0 50px 0 50px;
+  }
+  .techs__title {
+    padding-top: 90px;
+  }
+  .techs__subtitle {
+    margin-top: 80px;
+  }
+  .techs__paragraph {
+    padding-top: 22px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .techs__list {
+    margin-top: 83px;
+  }
+  .techs__item {
+    font-size: 12px;
+    min-width: 84px;
+    min-height: 57px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .techs {
+    min-height: 651px;
+  }
+  .techs__container {
+    margin: 0 18px 0 18px;
+  }
+  .techs__title {
+    border-color: #000000;
+    padding-top: 70px;
+    padding-bottom: 27px;
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .techs__subtitle {
+    margin-top: 60px;
+    font-size: 30px;
+    line-height: 36px;
+  }
+  .techs__paragraph {
+    padding-top: 24px;
+    font-size: 11px;
+    line-height: 16px;
+  }
+  .techs__list {
+    margin-top: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 51px 0 51px;
+  }
+  .techs__item:not(:first-child) {
+    margin-left: 0px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .techs__item:last-child {
+    margin-right: auto;
+  }
+}

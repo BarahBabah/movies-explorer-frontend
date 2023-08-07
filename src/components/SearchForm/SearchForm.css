@@ -1,0 +1,165 @@
+.search-form {
+  max-width: calc(1280px - 140px);
+  margin: auto;
+  min-height: 247px;
+}
+
+.search-form__container {
+  padding-top: 60px;
+}
+
+.search-form__label {
+  background: #2f2f2f;
+  border-radius: 40px;
+  display: grid;
+  grid-template-columns: 1fr 70px;
+  align-items: center;
+  justify-items: center;
+}
+
+.search-form__input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 46px;
+  background: transparent;
+  border-radius: 40px;
+  border: 0;
+  color: white;
+  padding: 0 0 0 22px;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0px;
+  text-align: left;
+  outline: none;
+}
+
+.search-form__input::placeholder {
+  color: #8b8b8b;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.search-form__submit {
+  padding: 0px;
+  border-radius: 40px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0px;
+  text-align: center;
+
+  color: white;
+  border: 0;
+  min-width: 58.649993896484375px;
+  min-height: 34px;
+  background: #4285f4;
+}
+
+.search-form__options {
+  margin-top: 41px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #424242;
+  padding-bottom: 70px;
+}
+
+.search-form__option-checkbox-label {
+  position: relative;
+  display: inline-block;
+  width: 34px;
+  height: 14px;
+}
+
+.search-form__option-checkbox {
+  display: none;
+}
+
+.search-form__checkbox-custom {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #343434;
+  border-radius: 20px;
+  transition: 0.4s;
+}
+
+.search-form__checkbox-custom::before {
+  position: absolute;
+  content: "";
+  height: 10px;
+  width: 10px;
+  left: 2px;
+  bottom: 2px;
+  background-color: #a0a0a0;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+.search-form__option-checkbox:checked + .search-form__checkbox-custom {
+  background: #3ddc84;
+}
+
+.search-form__option-checkbox:checked + .search-form__checkbox-custom::before {
+  transform: translateX(20px);
+  background: #ffffff;
+}
+.search-form__checkbox-custom:hover::before {
+  transform: matrix(1, 0, 0, 1, 2, 0);
+}
+.search-form__option-checkbox:checked
+  + .search-form__checkbox-custom:hover::before {
+  transform: matrix(1, 0, 0, 1, 18, 0);
+}
+.search-form__option-text {
+  margin-left: 12px;
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+@media screen and (max-width: 1024px) {
+  .search-form {
+    margin: 0 30px 0 30px;
+  }
+
+  .search-form__container {
+    padding-top: 79px;
+  }
+
+  .search-form__options {
+    padding-bottom: 52px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .search-form {
+    margin: 0 14px 0 14px;
+  }
+
+  .search-form__options {
+    margin-top: 43px;
+  }
+
+  .search-form__option-text {
+    font-size: 11px;
+  }
+
+  .search-form__input {
+    font-size: 11px;
+  }
+
+  .search-form__input::placeholder {
+    font-size: 11px;
+  }
+}
