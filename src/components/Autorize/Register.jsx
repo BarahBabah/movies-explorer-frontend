@@ -1,15 +1,27 @@
-import { useState } from "react";
+import React from "react";
 import logo from "./../../images/logo.svg";
 import { Link } from "react-router-dom";
-import "./Autorize.css";
 import useFormWithValidation from "../../hooks/useFormWithValidation";
+import "./Autorize.css";
 function Register({ onRegister }) {
-  const { values, handleChange, errors, isValid, resetForm } =
-    useFormWithValidation(); // Используем useFormWithValidation хук
+  const {
+    values,
+    handleChange,
+    errors,
+    isValid,
+    setErrorText,
+    errorText,
+    handleServerError,
+  } = useFormWithValidation();
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    onRegister(values.email, values.password, values.name);
+    setErrorText("");
+    try {
+      await onRegister(values.email, values.password, values.name);
+    } catch (error) {
+      handleServerError(error);
+    }
   }
 
   return (
@@ -31,6 +43,7 @@ function Register({ onRegister }) {
               type="text"
               value={values.name || ""}
               required
+              pattern="^[a-zA-Zа-яЁёА-Я\s\-]+$"
               placeholder="Введите имя пользователя"
               minLength={2}
               maxLength={30}
@@ -55,6 +68,7 @@ function Register({ onRegister }) {
               value={values.email || ""}
               placeholder="Введите email"
               required
+              pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
               autoComplete="username"
               onChange={handleChange}
             />
@@ -90,8 +104,12 @@ function Register({ onRegister }) {
             >
               {errors.password || "Что-то пошло не так..."}
             </label>
-            <label className="autorize__label autorize__label_error autorize__label_error-submit">
-              323124 + {errors.password}
+            <label
+              className={`autorize__label autorize__label_error autorize__label_error-submit ${
+                errorText ? "has-error" : ""
+              }`}
+            >
+              {errorText || "Что-то пошло не так..."}
             </label>
             <button
               type="submit"

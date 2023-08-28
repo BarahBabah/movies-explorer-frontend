@@ -1,65 +1,152 @@
-import { useState } from "react";
+import { useState, useContext, useEffect, memo } from "react";
+import CurrentUserContext from "./../../context/CurrentUserContext";
+import useFormWithValidation from "../../hooks/useFormWithValidation";
+import api from "../../utils/mainApi.js";
 import "./Profile.css";
-function Profile({ onLogout }) {
+function Profile({ onLogout, setCurrentUser }) {
+  const {
+    values,
+    handleChange,
+    errors,
+    isValid,
+    resetForm,
+    // setErrorText,
+    errorText,
+    handleServerError,
+  } = useFormWithValidation();
+
+  const currentUser = useContext(CurrentUserContext);
+
+  const [edit, setEdit] = useState(false);
+
+  const [isFormChanged, setIsFormChanged] = useState(false); // Добавляем состояние для отслеживания изменений
+
   function handleLogout() {
     onLogout();
   }
-  const [name, setName] = useState("Виталий");
-  const [email, setEmail] = useState("pochta@yandex.ru");
 
-  function handleNameChange(value) {
-    setName(value);
+  function handleEdit(e) {
+    e.preventDefault();
+    setEdit(true);
   }
-  function HandleEmailChange(value) {
-    setEmail(value);
+
+  function handleChangeWithTracking(event) {
+    handleChange(event); // Вызываем обработчик изменения поля
+    setIsFormChanged(true); // Обновляем состояние изменений формы
   }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    try {
+      await api
+        .updateUser(values.name, values.email)
+        .then((res) => setCurrentUser(res));
+    } catch (error) {
+      handleServerError(error);
+    }
+  }
+
+  useEffect(() => {
+    if (currentUser) {
+      resetForm(currentUser, {}, true);
+    }
+  }, [currentUser, resetForm]);
 
   return (
     <main className="main">
       <section className="profile">
-        <h1 className="profile__heading">Привет, {name}!</h1>
+        <h1 className="profile__heading">Привет, {currentUser.name}!</h1>
         <form className="profile__form">
           <div className="profile__form-container">
             <label className="profile__label">
               Имя
               <input
                 type="text"
+                id="name"
+                name="name"
                 className="profile__input"
-                value={name}
+                value={values.name || ""}
                 placeholder="Введите имя"
                 minLength={2}
                 maxLength={30}
-                onChange={(e) => handleNameChange(e.target.value)}
+                onChange={handleChangeWithTracking}
+                disabled={!edit}
+                pattern="^[a-zA-Zа-яЁёА-Я\s\-]+$"
+                required
               />
+            </label>
+            <label
+              htmlFor="name"
+              className={`profile__label-error profile__label-line ${
+                errors.name ? "has-error" : ""
+              }`}
+            >
+              {errors.name || "Что-то пошло не так..."}
             </label>
             <label className="profile__label">
               E-mail
               <input
+                id="email"
+                name="email"
                 type="email"
                 className="profile__input"
-                value={email}
                 placeholder="Введите email"
-                onChange={(e) => HandleEmailChange(e.target.value)}
+                value={values.email || ""}
+                onChange={handleChangeWithTracking}
+                pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
+                required
+                disabled={!edit}
               />
             </label>
+            <label
+              htmlFor="email"
+              className={`profile__label-error ${
+                errors.email ? "has-error" : ""
+              }`}
+            >
+              {errors.email || "Что-то пошло не так..."}
+            </label>
           </div>
-          {/* <p className="profile__error">При обновлении профиля произошла ошибка.</p> */}
-          <button
-            type="submit"
-            className="profile__button profile__button_submit button-hover"
-          >
-            Редактировать
-          </button>
-          <button
-            type="button"
-            className="profile__button profile__button_logout button-hover"
-            onClick={handleLogout}
-          >
-            Выйти из аккаунта
-          </button>
+          {!edit && (
+            <>
+              <button
+                type="button"
+                className="profile__button profile__button_submit button-hover"
+                onClick={handleEdit}
+              >
+                Редактировать
+              </button>
+              <button
+                type="button"
+                className="profile__button profile__button_logout button-hover"
+                onClick={handleLogout}
+              >
+                Выйти из аккаунта
+              </button>
+            </>
+          )}
+          {edit && (
+            <>
+              <label
+                className={`profile__label-error profile__label-error-edit ${
+                  errorText ? "has-error" : ""
+                }`}
+              >
+                {errorText || "Что-то пошло не так..."}
+              </label>
+              <button
+                type="submit"
+                className="profile__button profile__button_edit button-hover"
+                onClick={handleSubmit}
+                disabled={!isValid || !isFormChanged}
+              >
+                Сохранить
+              </button>
+            </>
+          )}
         </form>
       </section>
     </main>
   );
 }
-export default Profile;
+export default memo(Profile);

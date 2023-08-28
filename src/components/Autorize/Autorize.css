@@ -46,7 +46,7 @@
 .autorize__label_error-submit {
   margin: 0;
   margin-top: calc(73px - 20px - 12px);
-  opacity: 1;
+  /* opacity: 1; */
   text-align: center;
 }
 .autorize__label_error-submit_login {

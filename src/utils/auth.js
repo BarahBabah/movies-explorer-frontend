@@ -3,7 +3,7 @@ function getJson(response) {
   if (response.ok) {
     return response.json();
   }
-  return Promise.reject(`Ошибка: ${response.status}`);
+  return Promise.reject(response);
 }
 export const register = (email, password, name) => {
   return fetch(`${BASE_URL}/signup`, {

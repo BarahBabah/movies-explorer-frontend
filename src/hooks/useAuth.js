@@ -1,29 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import * as auth from "./../utils/auth.js";
 
 const useAuth = () => {
-  const [isLoggedIn, setLoggedIn] = useState(false);
-  const [profileEmail, setProfileEmail] = useState("");
-  const [profileName, setProfileName] = useState("");
+  const [isLoggedIn, setLoggedIn] = useState(!!localStorage.getItem("jwt"));
+  const [currentUser, setCurrentUser] = useState(``);
   const navigate = useNavigate();
 
   // Регистрация и авторизация
   const handleRegister = (email, password, name) => {
-    auth
+    return auth
       .register(email, password, name)
       .then((response) => {
         if (response) {
           navigate("/signin");
         }
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        throw error;
       });
   };
 
   const handleAuthorize = (email, password) => {
-    auth
+    return auth
       .authorize(email, password)
       .then((response) => {
         if (response) {
@@ -32,8 +31,8 @@ const useAuth = () => {
           navigate("/movies");
         }
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        throw error;
       });
   };
 
@@ -45,17 +44,20 @@ const useAuth = () => {
   const handleTokenCheck = () => {
     const jwt = localStorage.getItem("jwt");
     if (jwt) {
-      auth.getContent(jwt).then((response) => {
-        if (response) {
-          setLoggedIn(true);
-        }
-      });
+      auth
+        .getContent(jwt)
+        .then(() => setLoggedIn(true))
+        .catch((err) => {
+          console.log(err);
+          setLoggedIn(false);
+        });
     }
   };
   return {
     isLoggedIn,
-    profileEmail,
     setLoggedIn,
+    setCurrentUser,
+    currentUser,
     handleRegister,
     handleAuthorize,
     handleLogout,
