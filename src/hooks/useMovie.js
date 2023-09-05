@@ -175,6 +175,7 @@ function useMovie() {
     setShortMoviesSaved,
     setIsEmptyMoviesInput,
     savedMovies,
+    setSortedMovies,
   };
 }
 export default useMovie;

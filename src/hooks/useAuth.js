@@ -36,12 +36,6 @@ const useAuth = () => {
       });
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem("jwt");
-    localStorage.clear();
-    setLoggedIn(false);
-    navigate("/");
-  };
   const handleTokenCheck = () => {
     const jwt = localStorage.getItem("jwt");
     if (jwt) {
@@ -61,7 +55,6 @@ const useAuth = () => {
     currentUser,
     handleRegister,
     handleAuthorize,
-    handleLogout,
     handleTokenCheck,
   };
 };

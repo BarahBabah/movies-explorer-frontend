@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // Functional Components
 import Preloader from "../Preloader/Preloader.jsx";
 import Header from "./../Header/Header.jsx";
@@ -26,37 +27,16 @@ function App() {
     isLoggedIn,
     handleRegister,
     handleAuthorize,
-    handleLogout,
     handleTokenCheck,
     setCurrentUser,
+    setLoggedIn,
     currentUser,
   } = useAuth();
 
-  const [isLoading, setLoading] = useState(true);
-
-  useEffect(() => {
-    handleTokenCheck();
-    if (isLoggedIn) {
-      mainApi
-        .getCurrentUser()
-        .then((userData) => {
-          setCurrentUser(userData);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-  }, [isLoggedIn]);
-
-  const isContentPage = () => {
-    const path = location.pathname;
-    return ["/", "/movies", "/saved-movies", "/profile"].includes(path);
-  };
-
-  // НИЖЕ ВСЁ ДЛЯ ФИЛЬМОВ
   const {
     allMovies,
     sortedMovies,
+    setSortedMovies,
     moviesInput,
     setMoviesInput,
     shortMovies,
@@ -84,6 +64,41 @@ function App() {
     setIsEmptyMoviesInput,
   } = useMovie();
 
+  const [isLoading, setLoading] = useState(true);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("jwt");
+    localStorage.clear();
+    setCurrentUser({});
+    setSortedMovies([]);
+    setMoviesInput("");
+    setIsEmptyMoviesInput(true);
+
+    setLoggedIn(false);
+    navigate("/");
+  };
+
+  useEffect(() => {
+    handleTokenCheck();
+    if (isLoggedIn) {
+      mainApi
+        .getCurrentUser()
+        .then((userData) => {
+          setCurrentUser(userData);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [isLoggedIn]);
+
+  const isContentPage = () => {
+    const path = location.pathname;
+    return ["/", "/movies", "/saved-movies", "/profile"].includes(path);
+  };
+
+  // НИЖЕ ВСЁ ДЛЯ ФИЛЬМОВ
   useEffect(() => {
     const handleResize = () => {
       const newVisibleMovies = calculateVisibleMovies();
