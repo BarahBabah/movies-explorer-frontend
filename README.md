@@ -3,7 +3,7 @@ https://novelthunderstorm.nomoreparties.sbs
 
 макет https://disk.yandex.ru/d/D3LltzrLnGm--g
 
-ссылка на пулреквест отсутствует, т.к при создании пулреквеста появляется 500 ошибка github, перепробовал все варианты
+<!-- ссылка на пулреквест отсутствует, т.к при создании пулреквеста появляется 500 ошибка github, перепробовал все варианты
 вот скриншот ошибки:
 https://imgur.com/a/G4fQ3bN
 
@@ -11,4 +11,6 @@ https://imgur.com/a/G4fQ3bN
 https://imgur.com/a/3MCcO5I
 
 вот ссылка на ветку level-3
-https://github.com/BarahBabah/movies-explorer-frontend/tree/level-3
+https://github.com/BarahBabah/movies-explorer-frontend/tree/level-3 -->
+
+ВОТ ССЫЛКА НА ПУЛРЕКВЕСТ https://github.com/BarahBabah/movies-explorer-frontend/pull/12
