@@ -38,6 +38,7 @@ const useAuth = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("jwt");
+    localStorage.clear();
     setLoggedIn(false);
     navigate("/");
   };

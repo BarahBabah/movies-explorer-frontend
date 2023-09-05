@@ -102,7 +102,7 @@ function App() {
       getMovies();
       getSavedMovies();
     }
-  }, []);
+  }, [isLoggedIn]);
 
   useEffect(searchMovies, [allMovies, shortMovies]);
 
