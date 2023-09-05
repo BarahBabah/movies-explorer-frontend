@@ -11,9 +11,18 @@
   column-gap: 24px;
   justify-content: center;
 }
+.movies__list-not-found {
+  margin: 0;
+  color: white;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0px;
+  text-align: center;
+}
 @media screen and (max-width: 1024px) {
   .movies__list {
-    margin: 0 30px 0 30px;
+    /* margin: 0 30px 0 30px; */
     grid-auto-columns: 339px;
     grid-auto-rows: 258px;
     grid-template-columns: repeat(auto-fit, 339px);

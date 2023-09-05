@@ -18,7 +18,7 @@ import CurrentUserContext from "../../context/CurrentUserContext.jsx";
 // hooks и api
 import useAuth from "../../hooks/useAuth.js";
 import mainApi from "../../utils/mainApi.js";
-import * as moviesApi from "../../utils/moviesApi.js";
+import useMovie from "../../hooks/useMovie.js";
 function App() {
   const location = useLocation();
 
@@ -48,16 +48,65 @@ function App() {
     }
   }, [isLoggedIn]);
 
-  useEffect(() => {
-    moviesApi.getMovies().then((res) => {
-      console.log(res);
-    });
-  }, []);
-
   const isContentPage = () => {
     const path = location.pathname;
     return ["/", "/movies", "/saved-movies", "/profile"].includes(path);
   };
+
+  // НИЖЕ ВСЁ ДЛЯ ФИЛЬМОВ
+  const {
+    allMovies,
+    sortedMovies,
+    moviesInput,
+    setMoviesInput,
+    shortMovies,
+    setShortMovies,
+    isEmptyMoviesInput,
+    setVisibleMovies,
+    visibleMovies,
+    calculateVisibleMovies,
+    showMore,
+    getMovies,
+    savedMovies,
+    getSavedMovies,
+    searchMovies,
+    searchSavedMovies,
+    toggleMovie,
+    isLikes,
+    deleteMovie,
+    isEmptyMoviesSavedInput,
+    setIsEmptyMoviesSavedInput,
+    savedMoviesInput,
+    setSavedMoviesInput,
+    sortedSavedMovies,
+    shortMoviesSaved,
+    setShortMoviesSaved,
+    setIsEmptyMoviesInput,
+  } = useMovie();
+
+  useEffect(() => {
+    const handleResize = () => {
+      const newVisibleMovies = calculateVisibleMovies();
+      setVisibleMovies(newVisibleMovies);
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Вызовем один раз при загрузке страницы
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      getMovies();
+      getSavedMovies();
+    }
+  }, []);
+
+  useEffect(searchMovies, [allMovies, shortMovies]);
+
+  useEffect(searchSavedMovies, [shortMoviesSaved, savedMovies]);
 
   return (
     <>
@@ -86,12 +135,42 @@ function App() {
           />
           <Route
             path="/movies"
-            element={<ProtectedRoute element={Movies} loggedIn={isLoggedIn} />}
+            element={
+              <ProtectedRoute
+                element={Movies}
+                searchMovies={searchMovies}
+                loggedIn={isLoggedIn}
+                setShortMovies={setShortMovies}
+                shortMovies={shortMovies}
+                movies={sortedMovies}
+                handleAddMovie={toggleMovie}
+                setMoviesInput={setMoviesInput}
+                moviesInput={moviesInput}
+                setIsEmptyInput={setIsEmptyMoviesInput}
+                isEmptyInput={isEmptyMoviesInput}
+                visibleMovies={visibleMovies}
+                showMore={showMore}
+                isLikes={isLikes}
+              />
+            }
           />
           <Route
             path="/saved-movies"
             element={
-              <ProtectedRoute element={MoviesSaved} loggedIn={isLoggedIn} />
+              <ProtectedRoute
+                element={MoviesSaved}
+                searchMovies={searchSavedMovies}
+                loggedIn={isLoggedIn}
+                setShortMovies={setShortMoviesSaved}
+                shortMovies={shortMoviesSaved}
+                movies={sortedSavedMovies}
+                setMoviesInput={setSavedMoviesInput}
+                moviesInput={savedMoviesInput}
+                setIsEmptyInput={setIsEmptyMoviesSavedInput}
+                isEmptyInput={isEmptyMoviesSavedInput}
+                handleAddMovie={deleteMovie}
+                isLikes={isLikes}
+              />
             }
           />
           <Route path="/*" element={<NotFound />} />
