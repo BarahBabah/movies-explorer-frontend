@@ -5,7 +5,9 @@ import shortDuration from "./../utils/constants.js";
 function useMovie() {
   const [isEmptyMoviesInput, setIsEmptyMoviesInput] = useState(true);
   const [isEmptyMoviesSavedInput, setIsEmptyMoviesSavedInput] = useState(true);
-  const [allMovies, setAllMovies] = useState([]);
+  const [allMovies, setAllMovies] = useState(
+    JSON.parse(localStorage.getItem("movies")) || []
+  );
   const [savedMovies, setSavedMovies] = useState([]);
   const [sortedMovies, setSortedMovies] = useState(
     JSON.parse(localStorage.getItem("sortedMovies")) || []
@@ -60,9 +62,9 @@ function useMovie() {
   }
 
   const calculateVisibleMovies = () => {
-    if (window.innerWidth >= 1280) {
+    if (window.innerWidth >= 1180) {
       return 12; // Изменено на 12 для 1280px
-    } else if (window.innerWidth >= 768) {
+    } else if (window.innerWidth >= 650) {
       return 8; // 4 ряда по 2 карточки
     } else if (480 >= (window.innerWidth >= 320)) {
       return 5; // 5 карточек по 1 в ряд
@@ -73,9 +75,9 @@ function useMovie() {
   const showMore = () => {
     let moreMovies = 0;
 
-    if (window.innerWidth >= 1280) {
+    if (window.innerWidth >= 1181) {
       moreMovies = 3;
-    } else if (window.innerWidth >= 768) {
+    } else if (window.innerWidth >= 767) {
       moreMovies = 2;
     } else if (window.innerWidth >= 320) {
       moreMovies = 2;

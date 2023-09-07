@@ -79,7 +79,7 @@
 
 .profile__button_submit {
   /* margin-top: 220px; */
-  margin-top: 210px;
+  margin-top: 20px;
   color: white;
   font-weight: 400;
 }
@@ -95,6 +95,9 @@
 .profile__label-error-edit {
   margin-top: calc(210px - 20px - 12px);
   text-align: right;
+}
+.profile__label-error_color_green {
+  color: #3ddc84;
 }
 .profile__button_edit {
   margin-top: 20px;
@@ -127,9 +130,9 @@
     margin-top: 80px;
   }
 
-  .profile__button_submit {
+  /* .profile__button_submit {
     margin-top: 200px;
-  }
+  } */
   .profile__label-error-edit {
     margin-top: calc(200px - 20px - 12px);
   }
@@ -154,9 +157,9 @@
     line-height: 15px;
   }
 
-  .profile__button_submit {
+  /* .profile__button_submit {
     margin-top: 369px;
-  }
+  } */
 
   .profile__button_logout {
     font-weight: 500;

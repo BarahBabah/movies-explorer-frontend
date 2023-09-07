@@ -13,7 +13,8 @@ const useAuth = () => {
       .register(email, password, name)
       .then((response) => {
         if (response) {
-          navigate("/signin");
+          // navigate("/signin");
+          handleAuthorize(email, password);
         }
       })
       .catch((error) => {

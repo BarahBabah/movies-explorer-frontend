@@ -114,7 +114,8 @@ function App() {
 
   useEffect(() => {
     if (isLoggedIn) {
-      getMovies();
+      // getMovies();
+
       getSavedMovies();
     }
   }, [isLoggedIn]);
@@ -129,15 +130,35 @@ function App() {
       <CurrentUserContext.Provider value={currentUser}>
         {isContentPage() && <Header loggedIn={isLoggedIn} />}
         <Routes>
-          <Route path="/" element={<Main />} />
-          <Route
+          {/* <Route
             path="/signup"
             element={<Register onRegister={handleRegister} />}
+          /> */}
+          <Route
+            path="/signup"
+            element={
+              <ProtectedRoute
+                element={Register}
+                loggedIn={!isLoggedIn}
+                onRegister={handleRegister}
+              />
+            }
           />
           <Route
             path="/signin"
-            element={<Login onAuthorize={handleAuthorize} />}
+            element={
+              <ProtectedRoute
+                element={Login}
+                loggedIn={!isLoggedIn}
+                onAuthorize={handleAuthorize}
+              />
+            }
           />
+          {/* <Route
+            path="/signin"
+            element={<Login onAuthorize={handleAuthorize} />}
+          /> */}
+          <Route path="/" element={<Main />} />
           <Route
             path="/profile"
             element={
@@ -145,6 +166,7 @@ function App() {
                 element={Profile}
                 loggedIn={isLoggedIn}
                 onLogout={handleLogout}
+                setCurrentUser={setCurrentUser}
               />
             }
           />
@@ -166,6 +188,9 @@ function App() {
                 visibleMovies={visibleMovies}
                 showMore={showMore}
                 isLikes={isLikes}
+                getMovies={getMovies}
+                calculateVisibleMovies={calculateVisibleMovies}
+                setVisibleMovies={setVisibleMovies}
               />
             }
           />

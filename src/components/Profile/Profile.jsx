@@ -21,6 +21,12 @@ function Profile({ onLogout, setCurrentUser }) {
 
   const [isFormChanged, setIsFormChanged] = useState(false); // Добавляем состояние для отслеживания изменений
 
+  const message = "Данные успешно обновлены";
+  const [isMessage, setMessage] = useState("");
+
+  const disableState =
+    !isValid || !isFormChanged || currentUser.name === values.name;
+
   function handleLogout() {
     onLogout();
   }
@@ -38,10 +44,17 @@ function Profile({ onLogout, setCurrentUser }) {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      await api
-        .updateUser(values.name, values.email)
-        .then((res) => setCurrentUser(res));
+      await api.updateUser(values.name, values.email).then((res) => {
+        console.log(res);
+        setCurrentUser(res);
+        setEdit(false);
+        setMessage(message);
+        setTimeout(() => {
+          setMessage("");
+        }, 2000);
+      });
     } catch (error) {
+      console.log(error);
       handleServerError(error);
     }
   }
@@ -109,6 +122,13 @@ function Profile({ onLogout, setCurrentUser }) {
           </div>
           {!edit && (
             <>
+              <label
+                className={`profile__label-error profile__label-error-edit  ${
+                  isMessage ? "profile__label-error_color_green" : ""
+                }`}
+              >
+                {isMessage || "Что-то пошло не так..."}
+              </label>
               <button
                 type="button"
                 className="profile__button profile__button_submit button-hover"
@@ -136,9 +156,11 @@ function Profile({ onLogout, setCurrentUser }) {
               </label>
               <button
                 type="submit"
-                className="profile__button profile__button_edit button-hover"
+                className={`profile__button profile__button_edit ${
+                  !disableState ? "button-hover" : ""
+                }`}
                 onClick={handleSubmit}
-                disabled={!isValid || !isFormChanged}
+                disabled={disableState}
               >
                 Сохранить
               </button>

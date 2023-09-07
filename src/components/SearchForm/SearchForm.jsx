@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 import "./SearchForm.css";
 // import useFormWithValidation from "../../hooks/useFormWithValidation";
 function SearchForm({
@@ -8,7 +9,12 @@ function SearchForm({
   setMoviesInput,
   moviesInput,
   setIsEmptyInput,
+  getMovies,
+  setVisibleMovies,
+  calculateVisibleMovies,
 }) {
+  const location = useLocation();
+  const isMoviesPath = () => location.pathname === "/movies";
   function handleChecked() {
     setShortMovies(!shortMovies);
   }
@@ -20,6 +26,10 @@ function SearchForm({
 
   function handleSubmit(e) {
     e.preventDefault();
+    if (isMoviesPath()) {
+      getMovies();
+      setVisibleMovies(calculateVisibleMovies);
+    }
     searchMovies();
     setIsEmptyInput(moviesInput === "");
     console.log(shortMovies);
