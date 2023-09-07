@@ -12,6 +12,8 @@ function MoviesSaved({
   handleAddMovie,
   isLikes,
   shortMovies,
+  isLoadingMovies,
+  setLoadingMovies,
 }) {
   return (
     <main className="main">
@@ -23,11 +25,13 @@ function MoviesSaved({
           setMoviesInput={setMoviesInput}
           moviesInput={moviesInput}
           setIsEmptyInput={setIsEmptyInput}
+          setLoadingMovies={setLoadingMovies}
         />
         <MoviesCardList
           movies={movies}
           handleAddMovie={handleAddMovie}
           isLikes={isLikes}
+          isLoadingMovies={isLoadingMovies}
         />
         <div className="poop"></div>
       </section>

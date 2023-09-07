@@ -12,6 +12,7 @@ function SearchForm({
   getMovies,
   setVisibleMovies,
   calculateVisibleMovies,
+  setLoadingMovies,
 }) {
   const location = useLocation();
   const isMoviesPath = () => location.pathname === "/movies";
@@ -26,6 +27,7 @@ function SearchForm({
 
   function handleSubmit(e) {
     e.preventDefault();
+    setLoadingMovies(true);
     if (isMoviesPath()) {
       getMovies();
       setVisibleMovies(calculateVisibleMovies);
@@ -33,6 +35,9 @@ function SearchForm({
     searchMovies();
     setIsEmptyInput(moviesInput === "");
     console.log(shortMovies);
+    setTimeout(() => {
+      setLoadingMovies(false);
+    }, 300);
   }
 
   return (

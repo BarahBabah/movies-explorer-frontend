@@ -20,6 +20,8 @@ function Movies({
   getMovies,
   setVisibleMovies,
   calculateVisibleMovies,
+  isLoadingMovies,
+  setLoadingMovies,
 }) {
   return (
     <main className="main">
@@ -34,6 +36,7 @@ function Movies({
           getMovies={getMovies}
           setVisibleMovies={setVisibleMovies}
           calculateVisibleMovies={calculateVisibleMovies}
+          setLoadingMovies={setLoadingMovies}
         />
         <MoviesCardList
           movies={movies}
@@ -42,6 +45,7 @@ function Movies({
           moviesInput={moviesInput}
           isEmptyInput={isEmptyInput}
           isLikes={isLikes}
+          isLoadingMovies={isLoadingMovies}
         />
         {!isEmptyInput && visibleMovies < movies.length && (
           <More showMore={showMore} />

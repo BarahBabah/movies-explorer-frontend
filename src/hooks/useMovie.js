@@ -3,6 +3,9 @@ import * as moviesApi from "./../utils/moviesApi.js";
 import mainApi from "../utils/mainApi.js";
 import shortDuration from "./../utils/constants.js";
 function useMovie() {
+  // Add this state to App component
+  const [isLoadingMovies, setLoadingMovies] = useState(false);
+
   const [isEmptyMoviesInput, setIsEmptyMoviesInput] = useState(true);
   const [isEmptyMoviesSavedInput, setIsEmptyMoviesSavedInput] = useState(true);
   const [allMovies, setAllMovies] = useState(
@@ -178,6 +181,8 @@ function useMovie() {
     setIsEmptyMoviesInput,
     savedMovies,
     setSortedMovies,
+    isLoadingMovies,
+    setLoadingMovies,
   };
 }
 export default useMovie;
