@@ -14,6 +14,7 @@ function MoviesSaved({
   shortMovies,
   isLoadingMovies,
   setLoadingMovies,
+  getMovies,
 }) {
   return (
     <main className="main">
@@ -26,6 +27,7 @@ function MoviesSaved({
           moviesInput={moviesInput}
           setIsEmptyInput={setIsEmptyInput}
           setLoadingMovies={setLoadingMovies}
+          getMovies={getMovies}
         />
         <MoviesCardList
           movies={movies}

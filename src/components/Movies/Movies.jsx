@@ -47,7 +47,7 @@ function Movies({
           isLikes={isLikes}
           isLoadingMovies={isLoadingMovies}
         />
-        {!isEmptyInput && visibleMovies < movies.length && (
+        {!isEmptyInput && !isLoadingMovies && visibleMovies < movies.length && (
           <More showMore={showMore} />
         )}
       </section>

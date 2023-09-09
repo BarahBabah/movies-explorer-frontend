@@ -222,6 +222,7 @@ function App() {
                   isLikes={isLikes}
                   isLoadingMovies={isLoadingMovies}
                   setLoadingMovies={setLoadingMovies}
+                  getMovies={getSavedMovies}
                 />
               }
             />

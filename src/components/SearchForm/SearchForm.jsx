@@ -16,6 +16,7 @@ function SearchForm({
 }) {
   const location = useLocation();
   const isMoviesPath = () => location.pathname === "/movies";
+  const isSavedMoviesPath = () => location.pathname === "/saved-movies";
   function handleChecked() {
     setShortMovies(!shortMovies);
   }
@@ -32,12 +33,12 @@ function SearchForm({
       getMovies();
       setVisibleMovies(calculateVisibleMovies);
     }
+    if (isSavedMoviesPath()) {
+      getMovies();
+    }
     searchMovies();
     setIsEmptyInput(moviesInput === "");
     console.log(shortMovies);
-    setTimeout(() => {
-      setLoadingMovies(false);
-    }, 300);
   }
 
   return (

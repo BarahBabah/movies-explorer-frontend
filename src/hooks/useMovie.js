@@ -8,6 +8,7 @@ function useMovie() {
 
   const [isEmptyMoviesInput, setIsEmptyMoviesInput] = useState(true);
   const [isEmptyMoviesSavedInput, setIsEmptyMoviesSavedInput] = useState(true);
+
   const [allMovies, setAllMovies] = useState(
     JSON.parse(localStorage.getItem("movies")) || []
   );
@@ -61,6 +62,9 @@ function useMovie() {
       );
       setAllMovies(newMoviesArray);
       localStorage.setItem("movies", JSON.stringify(newMoviesArray));
+      setTimeout(() => {
+        setLoadingMovies(false);
+      }, 300);
     });
   }
 
@@ -93,6 +97,9 @@ function useMovie() {
       setSavedMovies(res);
       setSortedSavedMovies(res);
     });
+    setTimeout(() => {
+      setLoadingMovies(false);
+    }, 300);
   }
 
   function sortMovies(movies, searchForm, checked) {
