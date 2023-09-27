@@ -1,10 +1,12 @@
 import React from "react";
 import "./More.css";
 
-const More = () => {
+const More = ({ showMore }) => {
   return (
     <section className="more">
-      <button className="more__button button-hover">Ещё</button>
+      <button className="more__button button-hover" onClick={showMore}>
+        Ещё
+      </button>
     </section>
   );
 };

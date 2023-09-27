@@ -28,6 +28,11 @@
   line-height: 18px;
   letter-spacing: 0px;
   text-align: left;
+  /* сокращения строки заголовка карточек */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 290px;
 }
 
 .card__spec {
@@ -45,7 +50,9 @@
 .card__spec_saved {
   background: url(../../images/save9d.svg) no-repeat;
 }
-
+.card__spec_not-saved {
+  background: url(../../images/add-save9d.svg) no-repeat;
+}
 .card__thumbnail {
   width: 100%;
   height: 203px;

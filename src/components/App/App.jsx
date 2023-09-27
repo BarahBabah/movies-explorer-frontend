@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // Functional Components
 import Preloader from "../Preloader/Preloader.jsx";
 import Header from "./../Header/Header.jsx";
@@ -11,8 +12,14 @@ import NotFound from "../NotFound/NotFound.jsx";
 import Profile from "../Profile/Profile.jsx";
 import Login from "../Autorize/Login.jsx";
 import Register from "../Autorize/Register.jsx";
-// hooks
+
+// ProtectedRoute и CurrentUserContext
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.jsx";
+import CurrentUserContext from "../../context/CurrentUserContext.jsx";
+// hooks и api
 import useAuth from "../../hooks/useAuth.js";
+import mainApi from "../../utils/mainApi.js";
+import useMovie from "../../hooks/useMovie.js";
 function App() {
   const location = useLocation();
 
@@ -20,41 +27,212 @@ function App() {
     isLoggedIn,
     handleRegister,
     handleAuthorize,
-    handleLogout,
     handleTokenCheck,
+    setCurrentUser,
+    setLoggedIn,
+    currentUser,
   } = useAuth();
 
+  const {
+    allMovies,
+    sortedMovies,
+    setSortedMovies,
+    moviesInput,
+    setMoviesInput,
+    shortMovies,
+    setShortMovies,
+    isEmptyMoviesInput,
+    setVisibleMovies,
+    visibleMovies,
+    calculateVisibleMovies,
+    showMore,
+    getMovies,
+    savedMovies,
+    getSavedMovies,
+    searchMovies,
+    searchSavedMovies,
+    toggleMovie,
+    isLikes,
+    deleteMovie,
+    isEmptyMoviesSavedInput,
+    setIsEmptyMoviesSavedInput,
+    savedMoviesInput,
+    setSavedMoviesInput,
+    sortedSavedMovies,
+    shortMoviesSaved,
+    setShortMoviesSaved,
+    setIsEmptyMoviesInput,
+    isLoadingMovies,
+    setLoadingMovies,
+  } = useMovie();
+
   const [isLoading, setLoading] = useState(true);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("jwt");
+    localStorage.clear();
+    setCurrentUser({});
+    setSortedMovies([]);
+    setMoviesInput("");
+    setIsEmptyMoviesInput(true);
+
+    setLoggedIn(false);
+    navigate("/");
+  };
 
   useEffect(() => {
     handleTokenCheck();
-  }, []);
+    if (isLoggedIn) {
+      mainApi
+        .getCurrentUser()
+        .then((userData) => {
+          setCurrentUser(userData);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [isLoggedIn]);
 
   const isContentPage = () => {
     const path = location.pathname;
     return ["/", "/movies", "/saved-movies", "/profile"].includes(path);
   };
 
+  // НИЖЕ ВСЁ ДЛЯ ФИЛЬМОВ
+  useEffect(() => {
+    const handleResize = () => {
+      const newVisibleMovies = calculateVisibleMovies();
+      setVisibleMovies(newVisibleMovies);
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Вызовем один раз при загрузке страницы
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      getSavedMovies();
+    }
+  }, [isLoggedIn]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 300);
+  }, []);
+
+  useEffect(searchMovies, [allMovies, shortMovies]);
+
+  useEffect(searchSavedMovies, [shortMoviesSaved, savedMovies]);
+
   return (
     <>
-      {isLoading && <Preloader setLoading={setLoading} />}
-      {isContentPage() && <Header loggedIn={isLoggedIn} />}
-      <Routes>
-        <Route path="/" element={<Main />} />
-        <Route
-          path="/signup"
-          element={<Register onRegister={handleRegister} />}
-        />
-        <Route
-          path="/signin"
-          element={<Login onAuthorize={handleAuthorize} />}
-        />
-        <Route path="/profile" element={<Profile onLogout={handleLogout} />} />
-        <Route path="/movies" element={<Movies />} />
-        <Route path="/saved-movies" element={<MoviesSaved />} />
-        <Route path="/*" element={<NotFound />} />
-      </Routes>
-      {isContentPage() && !location.pathname.includes("/profile") && <Footer />}
+      {isLoading ? (
+        <Preloader setLoading={setLoading} />
+      ) : (
+        <CurrentUserContext.Provider value={currentUser}>
+          {isContentPage() && <Header loggedIn={isLoggedIn} />}
+          <Routes>
+            {/* <Route
+            path="/signup"
+            element={<Register onRegister={handleRegister} />}
+          /> */}
+            <Route
+              path="/signup"
+              element={
+                <ProtectedRoute
+                  element={Register}
+                  loggedIn={!isLoggedIn}
+                  onRegister={handleRegister}
+                />
+              }
+            />
+            <Route
+              path="/signin"
+              element={
+                <ProtectedRoute
+                  element={Login}
+                  loggedIn={!isLoggedIn}
+                  onAuthorize={handleAuthorize}
+                />
+              }
+            />
+            {/* <Route
+            path="/signin"
+            element={<Login onAuthorize={handleAuthorize} />}
+          /> */}
+            <Route path="/" element={<Main />} />
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute
+                  element={Profile}
+                  loggedIn={isLoggedIn}
+                  onLogout={handleLogout}
+                  setCurrentUser={setCurrentUser}
+                />
+              }
+            />
+            <Route
+              path="/movies"
+              element={
+                <ProtectedRoute
+                  element={Movies}
+                  searchMovies={searchMovies}
+                  loggedIn={isLoggedIn}
+                  setShortMovies={setShortMovies}
+                  shortMovies={shortMovies}
+                  movies={sortedMovies}
+                  handleAddMovie={toggleMovie}
+                  setMoviesInput={setMoviesInput}
+                  moviesInput={moviesInput}
+                  setIsEmptyInput={setIsEmptyMoviesInput}
+                  isEmptyInput={isEmptyMoviesInput}
+                  visibleMovies={visibleMovies}
+                  showMore={showMore}
+                  isLikes={isLikes}
+                  getMovies={getMovies}
+                  calculateVisibleMovies={calculateVisibleMovies}
+                  setVisibleMovies={setVisibleMovies}
+                  isLoadingMovies={isLoadingMovies}
+                  setLoadingMovies={setLoadingMovies}
+                />
+              }
+            />
+            <Route
+              path="/saved-movies"
+              element={
+                <ProtectedRoute
+                  element={MoviesSaved}
+                  searchMovies={searchSavedMovies}
+                  loggedIn={isLoggedIn}
+                  setShortMovies={setShortMoviesSaved}
+                  shortMovies={shortMoviesSaved}
+                  movies={sortedSavedMovies}
+                  setMoviesInput={setSavedMoviesInput}
+                  moviesInput={savedMoviesInput}
+                  setIsEmptyInput={setIsEmptyMoviesSavedInput}
+                  isEmptyInput={isEmptyMoviesSavedInput}
+                  handleAddMovie={deleteMovie}
+                  isLikes={isLikes}
+                  isLoadingMovies={isLoadingMovies}
+                  setLoadingMovies={setLoadingMovies}
+                  getMovies={getSavedMovies}
+                />
+              }
+            />
+            <Route path="/*" element={<NotFound />} />
+          </Routes>
+          {isContentPage() && !location.pathname.includes("/profile") && (
+            <Footer />
+          )}
+        </CurrentUserContext.Provider>
+      )}
     </>
   );
 }

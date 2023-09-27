@@ -1,22 +1,29 @@
 import { useState } from "react";
 import logo from "./../../images/logo.svg";
 import { Link } from "react-router-dom";
+import useFormWithValidation from "../../hooks/useFormWithValidation";
 function Login({ onAuthorize }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const {
+    values,
+    handleChange,
+    errors,
+    isValid,
+    resetForm,
+    setErrorText,
+    errorText,
+    handleServerError,
+  } = useFormWithValidation();
 
-  function handleEmailChange(e) {
-    setEmail(e.target.value);
-  }
-
-  function handlePasswordChange(e) {
-    setPassword(e.target.value);
-  }
-
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    onAuthorize(email, password);
+    setErrorText("");
+    try {
+      await onAuthorize(values.email, values.password);
+    } catch (error) {
+      handleServerError(error);
+    }
   }
+
   return (
     <main className="main">
       <div className="autorize">
@@ -31,44 +38,61 @@ function Login({ onAuthorize }) {
             </label>
             <input
               id="email"
+              name="email"
               className="autorize__input"
               type="email"
-              value={email}
+              value={values.email || ""}
               placeholder="Введите email"
               required
+              pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
               autoComplete="username"
-              onChange={handleEmailChange}
+              onChange={handleChange}
             />
             <label
               htmlFor="email"
-              className="autorize__label autorize__label_error"
+              className={`autorize__label autorize__label_error ${
+                errors.email ? "has-error" : ""
+              }`}
             >
-              Что-то пошло не так...
+              {errors.email || "Что-то пошло не так..."}
             </label>
             <label htmlFor="password" className="autorize__label">
               Пароль
             </label>
             <input
               id="password"
+              name="password"
               className="autorize__input"
               type="password"
-              value={password}
+              value={values.password || ""}
               autoComplete="current-password"
               placeholder="Введите пароль"
               required
               minLength={8}
               maxLength={30}
-              onChange={handlePasswordChange}
+              onChange={handleChange}
             />
             <label
               htmlFor="password"
-              className="autorize__label autorize__label_error"
+              className={`autorize__label autorize__label_error ${
+                errors.password ? "has-error" : ""
+              }`}
             >
-              Что-то пошло не так...
+              {errors.password || "Что-то пошло не так..."}
+            </label>
+            <label
+              className={`autorize__label autorize__label_error autorize__label_error-submit autorize__label_error-submit_login ${
+                errorText ? "has-error" : ""
+              }`}
+            >
+              {errorText || "Что-то пошло не так..."}
             </label>
             <button
               type="submit"
-              className="autorize__submit autorize__submit_login button-hover"
+              disabled={!isValid}
+              className={`autorize__submit autorize__submit_login ${
+                !isValid ? "disabled" : "button-hover"
+              }`}
             >
               Войти
             </button>
