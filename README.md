@@ -1,9 +1,7 @@
 
 # Movies Explorer Frontend
-
-![Project Image](![image](https://github.com/BarahBabah/movies-explorer-frontend/assets/108397448/f7140730-4e4f-418e-98a3-9a47d5de6244)
-)
-
+> Frontend дипломного проекта Яндекс.Практикума
+---
 ## Сайт
 
 [Ссылка на работающий сайт](https://novelthunderstorm.nomoreparties.sbs)
@@ -13,9 +11,6 @@
 [Ссылка на макет проекта](https://disk.yandex.ru/d/D3LltzrLnGm--g)
 
 
-> Краткое описание проекта
-Frontend дипломного проекта Яндекс.Практикума
----
 
 ## Содержание
 
@@ -38,10 +33,10 @@ Frontend дипломного проекта Яндекс.Практикума
 
 ### Скриншоты
 
-![Скриншот 1](![image](https://github.com/BarahBabah/movies-explorer-frontend/assets/108397448/49a836ef-b092-4386-915f-57ced25d056b)
-)
-![Скриншот 2](![image](https://github.com/BarahBabah/movies-explorer-frontend/assets/108397448/d7a6c2f7-1bac-4104-8300-cb53bd4cd71d)
-)
+![Скриншот 1](https://github.com/BarahBabah/movies-explorer-frontend/assets/108397448/49a836ef-b092-4386-915f-57ced25d056b)
+
+![Скриншот 2](https://github.com/BarahBabah/movies-explorer-frontend/assets/108397448/d7a6c2f7-1bac-4104-8300-cb53bd4cd71d)
+
 
 ---
 
