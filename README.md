@@ -2,6 +2,7 @@
 # Movies Explorer Frontend
 > Frontend дипломного проекта Яндекс.Практикума
 ---
+(персональные данные в макете ненастоящие)
 ## Сайт
 
 [Ссылка на работающий сайт](https://novelthunderstorm.nomoreparties.sbs)
